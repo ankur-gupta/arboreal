@@ -88,6 +88,12 @@ class Node(object):
         else:
             self.missing = None
 
+    def perform_unsplit(self):
+        if not self.is_leaf():
+            self.left = None
+            self.right = None
+            self.missing = None
+
     def predict(self, method='max'):
         if method == 'max':
             # FIXME: What happens when there is a tie?
